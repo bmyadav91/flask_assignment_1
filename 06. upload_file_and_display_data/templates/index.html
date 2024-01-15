@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Build a Flask app that allows users to upload files and display them on the website.</title>
+</head>
+<body>
+    <h1>upload File</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="upload_file">Upload File</label>
+        <input type="file" name="upload_file" id="upload_file"/>
+        <button>Upload</button>
+    </form>
+    <h2>Uploaded Files</h2>
+    <ul>
+        {% for file in uploaded_files %}
+            <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

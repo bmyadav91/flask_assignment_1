@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+</head>
+<body>
+    <h2>You're Logged In and Your Profile</h2>
+    <p>Name: {{ name }}</p>
+    <p>email: {{ email }}</p>
+    <p>Created Account On: {{ date }}</p>
+    <p><a href="/logout">Logout</a></p>
+
+<script>{{ alert_message | safe }}</script>
+</body>
+</html>

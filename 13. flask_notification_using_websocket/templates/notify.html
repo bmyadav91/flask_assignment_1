@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Notify Users</title>
+</head>
+<body class="p-4 container">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter Notification Content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+      </div>
+      <button onclick="sendnotification()" class="btn btn-warning">Notify</button>
+
+
+<script src="https://cdn.socket.io/4.7.3/socket.io.min.js"></script>
+<script>
+    socket = io.connect("http://" + document.domain + ':' + location.port)
+    function sendnotification(){
+        notify_data = document.getElementById("exampleFormControlTextarea1").value;
+        socket.emit("notify", notify_data);
+    }
+</script>
+</body>
+</html>

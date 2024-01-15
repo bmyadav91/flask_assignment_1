@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Data Update Flask Websocket</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-3">
+
+<div class="container">
+    <input type="text" name="update_value" id="input_data"/>
+    <button type="submit" onclick="update__data()">Update</button>
+</div>
+
+
+<!-- js par  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script>
+    var socket = io.connect("http://" + document.domain + ':' + location.port);
+    function update__data(){
+        var new_val = document.getElementById("input_data").value;
+        socket.emit("socket_update_val", new_val);
+    }
+</script>
+</body>
+</html>
